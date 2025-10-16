@@ -73,4 +73,5 @@ spec:
     - protocol: TCP
       port: 5432       # A porta que outros pods usarão para se conectar
       targetPort: 5432 # A porta do contêiner Postgres
-  type: ClusterIP # Tipo de serviço ideal para comunicação interna no cluster
+      nodePort: 30432
+  type: NodePort # Tipo de serviço ideal para comunicação interna no cluster
