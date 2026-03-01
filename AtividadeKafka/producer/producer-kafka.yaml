@@ -15,10 +15,6 @@ spec:
     spec:
       containers:
         - name: producer-kafka
-          image: producer-kafka:v1.3
-          imagePullPolicy: Never
-          stdin: true  
-          tty: true     
-          env:
-            - name: KAFKA_BROKER
-              value: "kafka-service.kafka.svc.cluster.local:9092"
+          image: producer-kafka:v1.4
+          ports:
+            - containerPort: 3000

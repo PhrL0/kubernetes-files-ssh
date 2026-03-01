@@ -1,10 +1,8 @@
-
-
 const { Kafka } = require('kafkajs');
 
 const kafka = new Kafka({
     clientId: 'my-nodejs-app',
-    brokers: ['localhost:9092']
+    brokers: ['kafka-service:9092']
 })
 
 const consumer = kafka.consumer({groupId: 'my-group'});
@@ -15,7 +13,6 @@ const consumeMessages = async ()=>{
         
         await consumer.connect();
         console.log("Successfully connected to the broker")
-        
         await consumer.subscribe({ topic: 'test-topic', fromBeginning: true});
         await consumer.run({
             eachMessage: async({topic, partition, message}) => {
