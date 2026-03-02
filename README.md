@@ -102,10 +102,30 @@ yyp
 | `p`   | Cola abaixo da linha atual |
 
 ---
+## 🐳 Kind
 
+```bash
+# Carregar imagem local do Docker para dentro do cluster Kind
+kind load docker-image {nome_imagem}
+
+# Carregar especificando o cluster
+kind load docker-image {nome_imagem} --name {nome_do_cluster}
+```
+
+---
 ## 📨 Kafka
 
 ```bash
 # Listar/descrever um tópico
 ./kafka-topics.sh --describe --topic test-topic --bootstrap-server localhost:9092
 ```
+---
+
+## 📜 Kubetail
+
+```bash
+# Ver logs em tempo real de um deploy ou service
+kubetail logs {namespace}:{especificacao_deploy_svc}/{nome_metadata} -f
+```
+
+---
